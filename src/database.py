@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # Создание сессии
-SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
+SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:password@postgres:5432/testcrt'
 engine = create_engine(SQLALCHEMY_DATABASE_URI)
 Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
