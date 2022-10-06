@@ -14,8 +14,11 @@ class CityService:
             session.commit()
         return city_object
 
-    def get_cities_list(self, session: Session):
-        return session.query(self.model).all()
+    def get_cities_list(self, session: Session, q: str = None):
+        cities = session.query(self.model)
+        if q:
+            cities = cities.filter(self.model.name.ilike('%' + q + '%'))
+        return cities.all()
 
 
 city_service = CityService()

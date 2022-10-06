@@ -30,6 +30,6 @@ def cities_list(q: str = Query(description="Название города", defa
     """
     Получение списка городов
     """
-    cities = services.city_service.get_cities_list(s)
+    cities = services.city_service.get_cities_list(s, q)
 
     return [CitySchema.from_orm(city) for city in cities]
