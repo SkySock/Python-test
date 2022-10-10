@@ -1,7 +1,9 @@
+import os
+
 import requests
 
 
-WEATHER_API_KEY = '99ba78ee79a2a24bc507362c5288a81b'
+WEATHER_API_KEY = os.environ.get('WEATHER_API_KEY', default='')
 
 
 class GetWeatherRequest():

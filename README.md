@@ -39,7 +39,27 @@
   - Сделать логирование в файл, который не будет очищаться после перезапуска в докере
   - Описать правильную архитектуру для проекта
 
+### Запуск с Docker
 
+1. Склонировать репозиторий
+2. В корне проекта создать и заполнить файл `.env`
+```dotenv
+POSTGRES_DB=testcrt
+POSTGRES_USER=postgres
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_PASSWORD=password
+
+WEATHER_API_KEY=your_api_key
+```
+3. Собрать образ
+```commandline
+docker-compose build
+```
+4. Запустить
+```commandline
+docker-compose up
+```
 ## Результат выполнения задания
 Результат выполнения должен быть выложен в _общедоступном_ репозитории,
  история коммитов должна показывать выполненную работу
