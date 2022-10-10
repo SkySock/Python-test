@@ -32,8 +32,8 @@ class PicnicRegistrationSchema(BaseModel):
 
 class PicnicResponseSchema(BaseModel):
     id: int
-    city_name: str
-    time: dt.datetime
+    city_name: str = Field(description='Название города')
+    time: dt.datetime = Field(description='Дата пикника')
     users: List[UserModel]
 
     class Config:

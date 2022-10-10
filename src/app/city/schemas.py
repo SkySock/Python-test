@@ -7,8 +7,8 @@ class CreateCity(BaseModel):
 
 class CitySchema(BaseModel):
     id: int
-    name: str
-    weather: float
+    name: str = Field(description='Название города')
+    weather: float = Field(description='Температура воздуха')
 
     class Config:
         orm_mode = True
