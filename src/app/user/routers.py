@@ -17,7 +17,7 @@ def register_user(user: schemas.RegisterUserRequest, s: Session = Depends(get_db
     """
     Регистрация пользователя
     """
-    user_object = user_service.create_user(user, s)
+    user_object = user_service.create_user(s, user)
 
     return schemas.UserModel.from_orm(user_object)
 
@@ -30,5 +30,5 @@ def users_list(
     """
     Список пользователей с фильтрацией по максимальному и минимальному возрасту
     """
-    users = user_service.get_users_list(min_age, max_age, s)
+    users = user_service.get_users_list(s, min_age, max_age)
     return [schemas.UserModel.from_orm(user) for user in users]

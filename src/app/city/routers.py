@@ -20,7 +20,7 @@ def create_city(
     if not check.check_existing(city.name):
         raise HTTPException(status_code=400, detail='Параметр city должен быть существующим городом')
 
-    city_object = services.city_service.create_city(city.name, s)
+    city_object = services.city_service.create_city(s, city.name)
 
     return CitySchema.from_orm(city_object)
 
